@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+
+    <div id="counter">
+      <button type="button" data-action="decrement">-1</button>
+      <span id="value">0</span>
+      <button type="button" data-action="increment">+1</button>
+    </div>
+
+    <script>
+      // Pobierz elementy z DOM
+      const decrementButton = document.querySelector(
+        '[data-action="decrement"]'
+      );
+      const incrementButton = document.querySelector(
+        '[data-action="increment"]'
+      );
+      const valueElement = document.getElementById("value");
+
+      let counterValue = 0;
+
+      const updateCounterValue = () => {
+        valueElement.textContent = counterValue;
+      };
+
+      updateCounterValue();
+
+      decrementButton.addEventListener("click", () => {
+        counterValue -= 1;
+        updateCounterValue();
+      });
+
+      incrementButton.addEventListener("click", () => {
+        counterValue += 1;
+        updateCounterValue();
+      });
+    </script>
+  </body>
+</html>
